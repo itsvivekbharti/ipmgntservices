@@ -19,21 +19,21 @@ public class IPController {
 	
 	@PostMapping("checkIP")
 	public boolean checkIP(@RequestBody(required = true) final String ipAddress) {
-		if(ValidationUtilService.validateIP(ipAddress))
+		if(!ValidationUtilService.validateIP(ipAddress))
 			return false;
 		return ipService.checkIP(ipAddress);
 	}
 	
 	@PutMapping("addIPToBlackList")
 	public boolean addIPToBlackList(@RequestBody(required = true) final String ipAddress) {
-		if(ValidationUtilService.validateIP(ipAddress))
+		if(!ValidationUtilService.validateIP(ipAddress))
 			return false;
 		 return ipService.addIPToBlackList(ipAddress);
 	}
 	
 	@DeleteMapping("removeIPFromBlackList")
 	public boolean removeIPFromBlackList(@RequestBody(required = true) final String ipAddress) {
-		if(ValidationUtilService.validateIP(ipAddress))
+		if(!ValidationUtilService.validateIP(ipAddress))
 			return false;
 		 return ipService.removeIPFromBlackList(ipAddress);
 	}
